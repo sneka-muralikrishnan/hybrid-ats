@@ -1,21 +1,24 @@
 import { useEffect, useState } from "react";
 
+import React from "react";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import Login from "./pages/Login";
+import Register from "./pages/Register";
+import ApplicantDashboard from "./pages/ApplicantDashboard";
+import AdminDashboard from "./pages/AdminDashboard";
+
 function App() {
-  const [message, setMessage] = useState("Loading...");
-
-  useEffect(() => {
-    fetch("/api/status")
-      .then(res => res.text())
-      .then(data => setMessage(data))
-      .catch(err => setMessage("Error connecting to backend"));
-  }, []);
-
   return (
-    <div style={{ textAlign: "center", marginTop: "50px" }}>
-      <h1>Hybrid ATS Frontend</h1>
-      <p>Backend says: {message}</p>
-    </div>
+    <Router>
+      <Routes>
+        <Route path="/" element={<Login />} />
+        <Route path="/register" element={<Register />} />
+        <Route path="/applicant" element={<ApplicantDashboard />} />
+        <Route path="/admin" element={<AdminDashboard />} />
+      </Routes>
+    </Router>
   );
 }
 
 export default App;
+

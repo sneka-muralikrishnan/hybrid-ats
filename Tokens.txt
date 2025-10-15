@@ -1,0 +1,53 @@
+admin: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4ZWYyYzY5MDk5ZmQ4MjE5YmU5NDE2YSIsImlhdCI6MTc2MDUwNDkzNywiZXhwIjoxNzYxMTA5NzM3fQ.vwH3KnrN3hG3GbebybJD1RbMuOHgdu3o2JKJNSi5XjE
+
+{
+    "_id": "68ef2c69099fd8219be9416a",
+    "name": "Admin User",
+    "email": "admin@hybridats.com",
+    "role": "admin",
+    "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4ZWYyYzY5MDk5ZmQ4MjE5YmU5NDE2YSIsImlhdCI6MTc2MDUwNTIxOSwiZXhwIjoxNzYxMTEwMDE5fQ.Jf0h592oHact_jjjCmZZdemTCw2sN4pTjp-l31ffyn0"
+}
+
+sneka:
+{
+    "_id": "68ef0fec57b211d61ebc1bec",
+    "name": "Sneka",
+    "email": "sneka@applicant.com",
+    "role": "applicant",
+    "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4ZWYwZmVjNTdiMjExZDYxZWJjMWJlYyIsImlhdCI6MTc2MDUwNTE2MiwiZXhwIjoxNzYxMTA5OTYyfQ.ovlwm0K8S8rU7etqcNUWquL_JP4Y-KCRu5JOmxmDoGE"
+}
+
+
+[
+    {
+        "_id": "68ef2af9099fd8219be94163",
+        "applicant": "68ef0fec57b211d61ebc1bec",
+        "roleName": "Frontend Developer",
+        "roleType": "technical",
+        "status": "Applied",
+        "history": [
+            {
+                "status": "Applied",
+                "updatedBy": "applicant",
+                "comment": "Application submitted",
+                "_id": "68ef2af9099fd8219be94164",
+                "timestamp": "2025-10-15T05:02:49.177Z"
+            }
+        ],
+        "createdAt": "2025-10-15T05:02:49.182Z",
+        "updatedAt": "2025-10-15T05:02:49.182Z",
+        "__v": 0
+    }
+]
+
+
+
+bot:
+
+{
+    "_id": "68ef2f45099fd8219be9417b",
+    "name": "ATS Bot",
+    "email": "bot@hybridats.com",
+    "role": "bot",
+    "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4ZWYyZjQ1MDk5ZmQ4MjE5YmU5NDE3YiIsImlhdCI6MTc2MDUwNTY2OSwiZXhwIjoxNzYxMTEwNDY5fQ.gej7Yy0T9ZoIHDfc2f_btYNvGwQfQhYgqcrsAa0CEvU"
+}
