@@ -4,6 +4,7 @@ import cors from "cors";
 import connectDB from "./config/db.js";
 import authRoutes from "./routes/authRoutes.js";
 import { protect } from "./middleware/authMiddleware.js";
+import applicationRoutes from "./routes/applicationRoutes.js";
 
 dotenv.config();
 const app = express();
@@ -24,3 +25,6 @@ app.listen(PORT, () => console.log(`🚀 Server running on port ${PORT}`));
 app.get("/api/protected", protect, (req, res) => {
   res.json({ message: `Hello ${req.user.name}, you are authorized!` });
 });
+
+app.use("/api/applications", applicationRoutes);
+
