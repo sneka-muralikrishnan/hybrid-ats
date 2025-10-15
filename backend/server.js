@@ -5,6 +5,8 @@ import connectDB from "./config/db.js";
 import authRoutes from "./routes/authRoutes.js";
 import { protect } from "./middleware/authMiddleware.js";
 import applicationRoutes from "./routes/applicationRoutes.js";
+import botRoutes from "./routes/botRoutes.js";
+
 
 dotenv.config();
 const app = express();
@@ -27,4 +29,7 @@ app.get("/api/protected", protect, (req, res) => {
 });
 
 app.use("/api/applications", applicationRoutes);
+
+app.use("/api/bot", botRoutes);
+
 
