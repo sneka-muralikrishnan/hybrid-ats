@@ -1,53 +1,43 @@
-admin: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4ZWYyYzY5MDk5ZmQ4MjE5YmU5NDE2YSIsImlhdCI6MTc2MDUwNDkzNywiZXhwIjoxNzYxMTA5NzM3fQ.vwH3KnrN3hG3GbebybJD1RbMuOHgdu3o2JKJNSi5XjE
+ADMIN:
 
 {
-    "_id": "68ef2c69099fd8219be9416a",
-    "name": "Admin User",
-    "email": "admin@hybridats.com",
+    "_id": "68f0a448e554ed21d158eeac",
+    "name": "Admin1",
+    "email": "admin1@hybridats.com",
     "role": "admin",
-    "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4ZWYyYzY5MDk5ZmQ4MjE5YmU5NDE2YSIsImlhdCI6MTc2MDUwNTIxOSwiZXhwIjoxNzYxMTEwMDE5fQ.Jf0h592oHact_jjjCmZZdemTCw2sN4pTjp-l31ffyn0"
+    "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4ZjBhNDQ4ZTU1NGVkMjFkMTU4ZWVhYyIsImlhdCI6MTc2MDYwMTE2MCwiZXhwIjoxNzYxMjA1OTYwfQ.LWpODY11WyW2a4YT0eFv85ILQaDxgyKaZtQ8qcMZ60U"
 }
 
-sneka:
+
+USER:
+
 {
-    "_id": "68ef0fec57b211d61ebc1bec",
-    "name": "Sneka",
-    "email": "sneka@applicant.com",
+    "_id": "68f0de7e0583348c4b95aca9",
+    "name": "new",
+    "email": "new@applicants.com",
     "role": "applicant",
-    "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4ZWYwZmVjNTdiMjExZDYxZWJjMWJlYyIsImlhdCI6MTc2MDUwNTE2MiwiZXhwIjoxNzYxMTA5OTYyfQ.ovlwm0K8S8rU7etqcNUWquL_JP4Y-KCRu5JOmxmDoGE"
+    "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4ZjBkZTdlMDU4MzM0OGM0Yjk1YWNhOSIsImlhdCI6MTc2MDYxNjA2MiwiZXhwIjoxNzYxMjIwODYyfQ.FyiLYNTXCYNP2oXUERwswQOZVeH3h--Zmq1NI4qalCk"
+}
+
+JOB:
+{
+    "title": "React Developer",
+    "type": "technical",
+    "description": "Work on frontend with React and Tailwind.",
+    "createdBy": "68f0a448e554ed21d158eeac",
+    "_id": "68f0e1aa0583348c4b95acae",
+    "createdAt": "2025-10-16T12:14:34.203Z",
+    "updatedAt": "2025-10-16T12:14:34.203Z",
+    "__v": 0
 }
 
 
-[
-    {
-        "_id": "68ef2af9099fd8219be94163",
-        "applicant": "68ef0fec57b211d61ebc1bec",
-        "roleName": "Frontend Developer",
-        "roleType": "technical",
-        "status": "Applied",
-        "history": [
-            {
-                "status": "Applied",
-                "updatedBy": "applicant",
-                "comment": "Application submitted",
-                "_id": "68ef2af9099fd8219be94164",
-                "timestamp": "2025-10-15T05:02:49.177Z"
-            }
-        ],
-        "createdAt": "2025-10-15T05:02:49.182Z",
-        "updatedAt": "2025-10-15T05:02:49.182Z",
-        "__v": 0
-    }
-]
-
-
-
-bot:
+BOT:
 
 {
-    "_id": "68ef2f45099fd8219be9417b",
-    "name": "ATS Bot",
-    "email": "bot@hybridats.com",
+    "_id": "68f0e2bb0583348c4b95acb3",
+    "name": "bot1",
+    "email": "bot1@hybridats.com",
     "role": "bot",
-    "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4ZWYyZjQ1MDk5ZmQ4MjE5YmU5NDE3YiIsImlhdCI6MTc2MDUwNTY2OSwiZXhwIjoxNzYxMTEwNDY5fQ.gej7Yy0T9ZoIHDfc2f_btYNvGwQfQhYgqcrsAa0CEvU"
+    "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4ZjBlMmJiMDU4MzM0OGM0Yjk1YWNiMyIsImlhdCI6MTc2MDYxNzE0NywiZXhwIjoxNzYxMjIxOTQ3fQ.BX_2Ge9EwF643oTCdjvle7n-4heisOtMlqFrgpvFBLA"
 }
