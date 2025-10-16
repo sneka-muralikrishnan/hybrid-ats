@@ -5,6 +5,7 @@ import ApplicantDashboard from "./pages/ApplicantDashboard";
 import AdminDashboard from "./pages/AdminDashboard";
 import Login from "./pages/Login";
 import Register from "./pages/Register";
+import CurrentOpenings from "./components/CurrentOpenings";
 
 function App() {
   return (
@@ -21,6 +22,8 @@ function App() {
             <Route path="/register" element={<Register />} />
             <Route path="/applicant" element={<ApplicantDashboard />} />
             <Route path="/admin" element={<AdminDashboard />} />
+            <Route path="/current-openings" element={<CurrentOpenings />} />
+
           </Routes>
         </main>
       </div>

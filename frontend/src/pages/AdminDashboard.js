@@ -1,10 +1,19 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 const AdminDashboard = () => {
   const [applications, setApplications] = useState([]);
   const [comment, setComment] = useState("");
+  const [showJobForm, setShowJobForm] = useState(false);
+  const [job, setJob] = useState({
+    title: "",
+    type: "",
+    description: "",
+  });
+
   const token = localStorage.getItem("token");
+  const navigate = useNavigate();
 
   const fetchApplications = async () => {
     try {
@@ -38,10 +47,100 @@ const AdminDashboard = () => {
     }
   };
 
+  const handleJobChange = (e) => {
+    setJob({ ...job, [e.target.name]: e.target.value });
+  };
+
+  const createJob = async (e) => {
+    e.preventDefault();
+    try {
+      await axios.post("/api/jobs", job, {
+        headers: { Authorization: `Bearer ${token}` },
+      });
+      alert("Job offer created successfully!");
+      setJob({ title: "", type: "", description: "" });
+      setShowJobForm(false);
+    } catch (err) {
+      console.error("Error creating job:", err);
+      alert(err.response?.data?.message || "Failed to create job");
+    }
+  };
+
   return (
     <div className="min-h-screen bg-gray-100 flex flex-col items-center py-10">
       <h2 className="text-3xl font-bold mb-8 text-black">Admin Dashboard</h2>
 
+      {/* Action Buttons */}
+      <div className="flex gap-4 mb-6">
+        <button
+          onClick={() => setShowJobForm(true)}
+          className="bg-yellow-500 text-black font-semibold px-4 py-2 rounded hover:bg-yellow-600 transition"
+        >
+          + Create Job Offer
+        </button>
+        <button
+          onClick={() => navigate("/current-openings")}
+          className="bg-black text-white font-semibold px-4 py-2 rounded hover:bg-gray-800 transition"
+        >
+          View Current Openings
+        </button>
+      </div>
+
+      {/* Job Form Modal */}
+      {showJobForm && (
+        <div className="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center z-50">
+          <div className="bg-white rounded-xl p-6 shadow-lg w-96">
+            <h3 className="text-xl font-bold mb-4 text-indigo-600">
+              Create New Job Offer
+            </h3>
+            <form onSubmit={createJob} className="flex flex-col space-y-3">
+              <input
+                type="text"
+                name="title"
+                placeholder="Job Title"
+                value={job.title}
+                onChange={handleJobChange}
+                className="border p-2 rounded"
+                required
+              />
+              <input
+                type="text"
+                name="type"
+                placeholder="Job Type (e.g. Technical, HR)"
+                value={job.type}
+                onChange={handleJobChange}
+                className="border p-2 rounded"
+                required
+              />
+              <textarea
+                name="description"
+                placeholder="Job Description"
+                value={job.description}
+                onChange={handleJobChange}
+                className="border p-2 rounded"
+                required
+              ></textarea>
+              <div className="flex justify-between">
+                <button
+                  type="button"
+                  onClick={() => setShowJobForm(false)}
+                  className="bg-gray-300 text-black px-4 py-2 rounded hover:bg-gray-400"
+                >
+                  Cancel
+                </button>
+                <button
+                  type="submit"
+                  className="bg-indigo-600 text-white px-4 py-2 rounded hover:bg-indigo-700"
+                >
+                  Create
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+      )}
+
+      {/* Applications List */}
       {applications.length === 0 ? (
         <p className="text-gray-600 text-lg">No applications found.</p>
       ) : (

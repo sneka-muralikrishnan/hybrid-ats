@@ -6,6 +6,7 @@ import authRoutes from "./routes/authRoutes.js";
 import { protect } from "./middleware/authMiddleware.js";
 import applicationRoutes from "./routes/applicationRoutes.js";
 import botRoutes from "./routes/botRoutes.js";
+import jobRoutes from "./routes/jobRoutes.js";
 
 
 dotenv.config();
@@ -31,5 +32,7 @@ app.get("/api/protected", protect, (req, res) => {
 app.use("/api/applications", applicationRoutes);
 
 app.use("/api/bot", botRoutes);
+
+app.use("/api/jobs", jobRoutes);
 
 

@@ -1,9 +1,11 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 const ApplicantDashboard = () => {
   const [applications, setApplications] = useState([]);
   const token = localStorage.getItem("token");
+  const navigate = useNavigate();
 
   useEffect(() => {
     const fetchApplications = async () => {
@@ -22,7 +24,15 @@ const ApplicantDashboard = () => {
 
   return (
     <div className="min-h-screen bg-gray-100 flex flex-col items-center py-10">
-      <h2 className="text-3xl font-bold mb-8 text-black">My Applications</h2>
+      <div className="flex justify-between w-full max-w-4xl mb-8">
+        <h2 className="text-3xl font-bold text-black">My Applications</h2>
+        <button
+          onClick={() => navigate("/current-openings")}
+          className="bg-yellow-400 text-black font-semibold px-4 py-2 rounded hover:bg-yellow-500 transition"
+        >
+          Apply for More
+        </button>
+      </div>
 
       {applications.length === 0 ? (
         <p className="text-gray-600 text-lg">No applications found.</p>
