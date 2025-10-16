@@ -30,6 +30,27 @@ const CurrentOpenings = () => {
     }
   };
 
+  const applyForJob = async (job) => {
+    try {
+      const res = await axios.post(
+        "/api/applications",
+        {
+          roleId: job._id,
+          roleName: job.title,
+          roleType: job.type,
+          description: job.description,
+        },
+        {
+          headers: { Authorization: `Bearer ${token}` },
+        }
+      );
+      alert("Application submitted successfully!");
+    } catch (err) {
+      console.error("Error applying for job:", err);
+      alert(err.response?.data?.message || "Failed to apply for job");
+    }
+  };
+
   useEffect(() => {
     fetchJobs();
   }, []);
@@ -56,16 +77,26 @@ const CurrentOpenings = () => {
                 <span className="font-semibold">Type:</span> {job.type}
               </p>
               <p className="text-gray-600 mt-2">{job.description}</p>
-              {role === "admin" && (
-                <div className="flex justify-end mt-4">
+
+              <div className="flex justify-end mt-4 gap-2">
+                {role === "admin" && (
                   <button
                     onClick={() => deleteJob(job._id)}
                     className="bg-red-600 text-white px-4 py-2 rounded hover:bg-red-700 transition"
                   >
                     Delete
                   </button>
-                </div>
-              )}
+                )}
+
+                {role === "applicant" && (
+                  <button
+                    onClick={() => applyForJob(job)}
+                    className="bg-yellow-400 text-black px-4 py-2 rounded hover:bg-yellow-500 transition"
+                  >
+                    Apply
+                  </button>
+                )}
+              </div>
             </div>
           ))}
         </div>
