@@ -1,10 +1,10 @@
 import express from "express";
 import { runBotAutomation } from "../controllers/botController.js";
-import { protect } from "../middleware/authMiddleware.js";
+import { protect, verifyBot } from "../middleware/authMiddleware.js";
+
 
 const router = express.Router();
 
-// Trigger automation manually
-router.post("/run", protect, runBotAutomation);
+router.post("/run", protect, verifyBot, runBotAutomation);
 
 export default router;

@@ -18,6 +18,7 @@ const Login = () => {
       localStorage.setItem("role", res.data.role);
 
       if (res.data.role === "admin") navigate("/admin");
+      else if (res.data.role === "bot") navigate("/bot");
       else navigate("/applicant");
     } catch (err) {
       alert(err.response?.data?.message || "Login failed");
@@ -66,7 +67,7 @@ const Login = () => {
         <div className="w-1/2 bg-gradient-to-b from-yellow-400 to-yellow-300 flex flex-col justify-center items-center text-white p-10">
           <h1 className="text-4xl font-bold mb-4 text-black">Welcome Back!</h1>
           <p className="text-black text-center">
-            Access your Hybrid ATS account to manage applications and streamline hiring effortlessly.
+            Access your hATS account to manage applications and streamline hiring effortlessly.
           </p>
         </div>
       </div>

@@ -1,7 +1,7 @@
 import jwt from "jsonwebtoken";
 import User from "../models/User.js";
 
-// ✅ Verify the token and attach user info
+// Verify the token and attach user info
 export const protect = async (req, res, next) => {
   let token;
   if (
@@ -21,7 +21,7 @@ export const protect = async (req, res, next) => {
     return res.status(401).json({ message: "Not authorized, no token" });
 };
 
-// ✅ Check if user is admin
+// Check if user is admin
 export const verifyAdmin = (req, res, next) => {
   try {
     if (!req.user || req.user.role !== "admin") {
@@ -30,5 +30,17 @@ export const verifyAdmin = (req, res, next) => {
     next();
   } catch (err) {
     res.status(500).json({ message: "Error verifying admin access." });
+  }
+};
+
+//to verify if it bot login
+export const verifyBot = (req, res, next) => {
+  try {
+    if (!req.user || req.user.role !== "bot") {
+      return res.status(403).json({ message: "Access denied. Bots only." });
+    }
+    next();
+  } catch (err) {
+    res.status(500).json({ message: "Error verifying bot access." });
   }
 };

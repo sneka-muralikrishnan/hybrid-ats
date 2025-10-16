@@ -1,10 +1,10 @@
 import express from "express";
 import Job from "../models/Job.js";
-import { protect, verifyAdmin} from "../middleware/authMiddleware.js";
+import { protect, verifyAdmin, verifyBot} from "../middleware/authMiddleware.js";
 
 const router = express.Router();
 
-// ✅ Create Job (Admin only)
+// Create Job (Admin only)
 router.post("/", protect, verifyAdmin, async (req, res) => {
   try {
     const { title, type, description } = req.body;

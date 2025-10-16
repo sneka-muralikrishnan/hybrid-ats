@@ -31,7 +31,7 @@ const Register = () => {
       <div className="flex shadow-lg rounded-lg overflow-hidden max-w-4xl w-full">
         {/* Left yellow Section */}
         <div className="w-1/2 bg-gradient-to-b from-yellow-400 to-yellow-300 flex flex-col justify-center items-center text-white p-10">
-          <h1 className="text-4xl font-bold mb-4 text-black text-center">Welcome to Hybrid-ATS</h1>
+          <h1 className="text-4xl font-bold mb-4 text-black text-center">Welcome to hATS</h1>
           <p className="text-center">
             An intelligent recruitment platform combining AI-driven resume screening, job matching, and applicant tracking for smarter hiring decisions.
           </p>

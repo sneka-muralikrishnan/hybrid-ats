@@ -6,6 +6,7 @@ import AdminDashboard from "./pages/AdminDashboard";
 import Login from "./pages/Login";
 import Register from "./pages/Register";
 import CurrentOpenings from "./components/CurrentOpenings";
+import BotDashboard from "./components/BotDashboard";
 
 function App() {
   return (
@@ -23,7 +24,7 @@ function App() {
             <Route path="/applicant" element={<ApplicantDashboard />} />
             <Route path="/admin" element={<AdminDashboard />} />
             <Route path="/current-openings" element={<CurrentOpenings />} />
-
+            <Route path="/bot" element={<BotDashboard />} />
           </Routes>
         </main>
       </div>

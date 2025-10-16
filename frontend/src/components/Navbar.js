@@ -8,7 +8,8 @@ const Navbar = () => {
   // Check if we are on dashboard pages
   const isDashboard =
     location.pathname.includes("/admin") ||
-    location.pathname.includes("/applicant");
+    location.pathname.includes("/applicant")||
+    location.pathname.includes("/bot");
 
   const handleLogout = () => {
     localStorage.removeItem("token");
