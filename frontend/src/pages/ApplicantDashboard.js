@@ -21,38 +21,66 @@ const ApplicantDashboard = () => {
   }, [token]);
 
   return (
-    <div style={{ maxWidth: "800px", margin: "30px auto" }}>
-      <h2>My Applications</h2>
-      {applications.length === 0 ? (
-        <p>No applications found.</p>
-      ) : (
-        applications.map((app) => (
-          <div
-            key={app._id}
-            style={{
-              border: "1px solid #ccc",
-              padding: "15px",
-              marginBottom: "15px",
-              borderRadius: "8px",
-            }}
-          >
-            <h3>{app.roleName}</h3>
-            <p><b>Type:</b> {app.roleType}</p>
-            <p><b>Current Status:</b> {app.status}</p>
+    <div className="min-h-screen bg-gray-100 flex flex-col items-center py-10">
+      <h2 className="text-3xl font-bold mb-8 text-black">My Applications</h2>
 
-            <h4>History</h4>
-            <ul>
-              {app.history.map((entry, index) => (
-                <li key={index}>
-                  <b>{entry.status}</b> — updated by {entry.updatedBy} <br />
-                  <small>
-                    {new Date(entry.timestamp).toLocaleString()} — {entry.comment}
-                  </small>
-                </li>
-              ))}
-            </ul>
-          </div>
-        ))
+      {applications.length === 0 ? (
+        <p className="text-gray-600 text-lg">No applications found.</p>
+      ) : (
+        <div className="w-full max-w-4xl space-y-6">
+          {applications.map((app) => (
+            <div
+              key={app._id}
+              className="bg-white shadow-md rounded-lg p-6 border-l-4 border-yellow-400"
+            >
+              <h3 className="text-2xl font-semibold text-black mb-2">
+                {app.roleName}
+              </h3>
+              <p className="text-gray-700">
+                <span className="font-semibold">Type:</span> {app.roleType}
+              </p>
+              <p className="mt-2">
+                <span className="font-semibold text-gray-800">
+                  Current Status:
+                </span>{" "}
+                <span
+                  className={`font-bold ${
+                    app.status === "Offer"
+                      ? "text-green-600"
+                      : app.status === "Interview"
+                      ? "text-yellow-600"
+                      : "text-gray-600"
+                  }`}
+                >
+                  {app.status}
+                </span>
+              </p>
+
+              <div className="mt-4">
+                <h4 className="text-lg font-semibold text-black mb-2">
+                  History
+                </h4>
+                <ul className="space-y-2 text-black-700">
+                  {app.history.map((entry, index) => (
+                    <li
+                      key={index}
+                      className="bg-gray-50 p-3 rounded border border-black-200"
+                    >
+                      <p>
+                        <b>{entry.status}</b> — updated by{" "}
+                        <span className="text-black">{entry.updatedBy}</span>
+                      </p>
+                      <small className="block text-gray-500">
+                        {new Date(entry.timestamp).toLocaleString()} —{" "}
+                        {entry.comment || "No comment"}
+                      </small>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </div>
+          ))}
+        </div>
       )}
     </div>
   );
