@@ -9,6 +9,7 @@ const Navbar = () => {
   const isDashboard =
     location.pathname.includes("/admin") ||
     location.pathname.includes("/applicant")||
+     location.pathname.includes("/current-openings") ||
     location.pathname.includes("/bot");
 
   const handleLogout = () => {

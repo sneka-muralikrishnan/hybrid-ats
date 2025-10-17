@@ -11,12 +11,12 @@ const seedData = async () => {
   try {
     await connectDB();
 
-    console.log("🧹 Clearing old data...");
+    console.log("Clearing old data...");
     await User.deleteMany();
     await Application.deleteMany();
     await Job.deleteMany();
 
-    console.log("🌱 Seeding fresh data...");
+    console.log("Seeding fresh data...");
 
     // Create dummy users
     const users = await User.insertMany([

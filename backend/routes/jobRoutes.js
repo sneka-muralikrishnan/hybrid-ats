@@ -20,7 +20,7 @@ router.post("/", protect, verifyAdmin, async (req, res) => {
   }
 });
 
-// ✅ Get all Jobs (Everyone)
+// Get all Jobs (Everyone)
 router.get("/", async (req, res) => {
   try {
     const jobs = await Job.find().sort({ createdAt: -1 });
@@ -30,7 +30,7 @@ router.get("/", async (req, res) => {
   }
 });
 
-// ✅ Delete Job (Admin only)
+// Delete Job (Admin only)
 router.delete("/:id", protect, verifyAdmin, async (req, res) => {
   try {
     const job = await Job.findByIdAndDelete(req.params.id);
